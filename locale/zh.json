@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "会话守灯",
+    "description": "回收重复的 system prompt 副本、熔断 reasoning 复读、并在会话底部用状态灯实时显示健康度。"
+  }
+}

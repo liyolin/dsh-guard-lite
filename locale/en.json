@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Guard Lite",
+    "description": "Recycles duplicate system prompts, breaks reasoning repetition loops, and shows a live health lamp at the bottom of the conversation."
+  }
+}

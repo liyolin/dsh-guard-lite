@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Guard Lite">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2f7d5b"/>
+      <stop offset="1" stop-color="#123a2b"/>
+    </linearGradient>
+  </defs>
+  <path d="M32 5 L55 13 V31 C55 45 45 55 32 59 C19 55 9 45 9 31 V13 Z" fill="url(#g)" stroke="#7fd6a8" stroke-width="2.5"/>
+  <circle cx="32" cy="31" r="8.5" fill="#8ff0b6"/>
+  <circle cx="32" cy="31" r="3.4" fill="#123a2b"/>
+  <path d="M32 40 V48" stroke="#8ff0b6" stroke-width="3" stroke-linecap="round"/>
+</svg>
