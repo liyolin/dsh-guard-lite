@@ -4,9 +4,12 @@ DeepSeek Harness 插件：**回收重复的 system prompt 副本**、**熔断 re
 
 A Harness plugin that recycles duplicate system-prompt copies, breaks reasoning repetition loops, and shows a live health lamp under the composer.
 
+```bash
+git clone https://github.com/liyolin/dsh-guard-lite.git
 ```
-pnpm add dsh-guard-lite          # 或直接把这个目录 install_bundle 进 profile
-```
+
+然后在 Harness 里对这个目录执行 `plugin_manager` 的 `install_bundle`，target 指向 clone 下来的路径。
+`plugin_manager` 会把它 link 进当前 profile 并激活，不需要发布到 npm。
 
 ## 它解决什么
 
