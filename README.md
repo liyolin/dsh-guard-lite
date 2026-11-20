@@ -84,6 +84,12 @@ node test-recycle.mjs   # 回收决策：1 份不干预、2 份触发、reject �
 
 都不需要调用模型。
 
+## 注意
+
+`/guard-lite/state` 是只读诊断端点，靠 Harness 自身的连接鉴权把守，插件没有再额外判权限。
+返回内容是会话 id 前 8 位与用量指标（副本数、字符数、token 数、命中率），**不含对话正文**。
+如果你把 Harness 暴露到局域网或公网（remote access），这个端点会随之可达。
+
 ## 目录
 
 ```
