@@ -58,7 +58,7 @@ window.__ModuleLoader__.load({
       return '只有 1 份 system prompt，未检出复读，指标在安全区内。'
     }
 
-    function Panel({ state, feed, error, onClose, onRefresh }) {
+    function Panel({ state, sessionId, feed, error, onClose, onRefresh }) {
       const tone = TONE[state?.status ?? 'idle'] ?? TONE.idle
       return h(
         'div',
@@ -135,7 +135,9 @@ window.__ModuleLoader__.load({
         h(
           'div',
           { style: { fontSize: 11, color: 'var(--dsw-alias-label-tertiary)', marginBottom: 8 } },
-          state ? `会话 ${shortId(state.id)} · 更新于 ${clock(state.lastAt)}` : '未取到该会话状态',
+          state
+            ? `会话 ${shortId(state.id)} · 更新于 ${clock(state.lastAt)}`
+            : `会话 ${shortId(sessionId)} · 尚无请求记录`,
         ),
         state
           ? h(
@@ -219,11 +221,15 @@ window.__ModuleLoader__.load({
           alive.current = false
           clearInterval(timer)
         }
-      }, [load])
+      }, [load, sessionId])
 
       const rows = body?.sessions ?? []
-      const own = rows.find((row) => String(row.id) === String(sessionId)) ?? (rows.length === 1 ? rows[0] : undefined)
-      const status = error ? 'idle' : own?.status ?? (rows.length > 0 ? rows[0].status : 'idle')
+      /* Strictly this Session: borrowing another row would leak one Session's
+         health into the lamp of the Session the user just switched to. */
+      const own = sessionId === undefined
+        ? undefined
+        : rows.find((row) => String(row.id) === String(sessionId))
+      const status = error ? 'idle' : own?.status ?? 'idle'
       const tone = TONE[status] ?? TONE.idle
 
       const label = own === undefined ? '守卫 · 待命' : `守卫 · ${tone.label}`
@@ -270,6 +276,7 @@ window.__ModuleLoader__.load({
         open
           ? h(Panel, {
               state: own,
+              sessionId,
               feed: body !== null,
               error,
               onClose: () => setOpen(false),
