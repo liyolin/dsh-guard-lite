@@ -1,6 +1,6 @@
 {
   "meta": {
     "title": "会话守灯",
-    "description": "回收重复的 system prompt 副本、熔断 reasoning 复读、并在会话底部用状态灯实时显示健康度。"
+    "description": "防长会话退化：把重复的 system prompt 副本压回一份、熔断 reasoning 复读，并在会话底部用状态灯显示当前会话的健康度。不用于省 token。"
   }
 }

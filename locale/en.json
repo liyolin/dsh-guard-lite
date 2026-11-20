@@ -1,6 +1,6 @@
 {
   "meta": {
     "title": "Guard Lite",
-    "description": "Recycles duplicate system prompts, breaks reasoning repetition loops, and shows a live health lamp at the bottom of the conversation."
+    "description": "Guards long sessions against degeneration: collapses duplicate system-prompt copies, breaks reasoning repetition loops, and shows a per-session health lamp under the composer. Not a token-saving plugin."
   }
 }
